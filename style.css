@@ -1,36 +1,37 @@
 
-/* =========================================
+/* ==========================================
    MATCHDAY TOURNAMENT MANAGER
-   Theme: Light + Orange
-   ========================================= */
+   DARK + ORANGE THEME
+   ========================================== */
 
 :root {
     --primary: #f97316;
-    --primary-dark: #ea580c;
-    --primary-light: #fff0e5;
+    --primary-hover: #ea580c;
+    --primary-light: #431f0b;
 
-    --background: #f8fafc;
-    --surface: #ffffff;
-    --surface-soft: #fff7ed;
+    --background: #0b1120;
+    --surface: #151e2e;
+    --surface-light: #1e293b;
+    --surface-hover: #273449;
 
-    --text: #1e293b;
-    --text-light: #64748b;
-    --border: #e2e8f0;
+    --text: #f1f5f9;
+    --text-light: #a7b4c7;
+    --border: #334155;
 
-    --success: #16a34a;
-    --success-bg: #dcfce7;
+    --success: #22c55e;
+    --success-bg: #143522;
 
-    --danger: #dc2626;
-    --danger-bg: #fee2e2;
+    --danger: #ef4444;
+    --danger-bg: #451a1a;
 
-    --warning: #d97706;
-    --warning-bg: #fef3c7;
+    --warning: #fbbf24;
+    --warning-bg: #422e0b;
 
     --radius: 12px;
-    --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
-/* Basic reset */
+/* Reset */
 
 * {
     box-sizing: border-box;
@@ -43,23 +44,15 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
     background: var(--background);
     color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
     line-height: 1.6;
 }
 
 img {
     max-width: 100%;
-}
-
-a {
-    color: var(--primary-dark);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--primary);
+    height: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,20 +64,29 @@ p {
     color: var(--text-light);
 }
 
-/* Header and navigation */
-
-header,
-.topbar,
-.navbar,
-nav {
-    color: var(--text);
+a {
+    color: #fb923c;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
+
+a:hover {
+    color: #fdba74;
+}
+
+/* Header and navigation */
 
 header,
 .topbar,
 .navbar {
     background: var(--surface);
+    color: var(--text);
     border-bottom: 1px solid var(--border);
+}
+
+nav,
+.nav-links {
+    color: var(--text);
 }
 
 nav a,
@@ -92,7 +94,8 @@ nav a,
 .navbar a,
 header a {
     color: var(--text-light);
-    transition: color 0.2s ease;
+    transition: color 0.2s ease,
+                background 0.2s ease;
 }
 
 nav a:hover,
@@ -102,7 +105,7 @@ header a:hover {
     color: var(--primary);
 }
 
-/* Main content */
+/* Page content */
 
 main,
 .main-content,
@@ -116,7 +119,7 @@ section {
     margin-bottom: 24px;
 }
 
-/* Cards and dashboard panels */
+/* Dashboard cards and panels */
 
 .card,
 .stat-card,
@@ -124,8 +127,9 @@ section {
 .panel,
 .team-card,
 .match-card,
+.content-card,
 .table-container,
-.content-card {
+.stat-box {
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--border);
@@ -145,11 +149,26 @@ section {
 .card:hover,
 .team-card:hover,
 .match-card:hover {
-    border-color: #fdba74;
+    border-color: var(--primary);
     transition: border-color 0.2s ease;
 }
 
-/* Primary buttons */
+/* Main headings and highlights */
+
+.stat-number,
+.stat-value,
+.highlight,
+.accent {
+    color: var(--primary);
+}
+
+small,
+.muted,
+.text-muted {
+    color: var(--text-light);
+}
+
+/* Buttons */
 
 button,
 .btn,
@@ -174,7 +193,8 @@ button:hover,
 .btn-primary:hover,
 button[type="submit"]:hover,
 input[type="submit"]:hover {
-    background: var(--primary-dark);
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
     color: #ffffff;
 }
 
@@ -186,18 +206,18 @@ button:active,
 /* Secondary buttons */
 
 .btn-secondary,
-button.secondary,
-.btn-outline {
-    background: var(--surface);
-    color: var(--primary-dark);
-    border: 1px solid #fdba74;
+.btn-outline,
+button.secondary {
+    background: var(--surface-light);
+    color: #fdba74;
+    border: 1px solid var(--border);
 }
 
 .btn-secondary:hover,
-button.secondary:hover,
-.btn-outline:hover {
-    background: var(--primary-light);
-    color: var(--primary-dark);
+.btn-outline:hover,
+button.secondary:hover {
+    background: var(--surface-hover);
+    color: #ffffff;
 }
 
 /* Forms */
@@ -219,9 +239,9 @@ textarea {
     width: 100%;
     padding: 11px 12px;
     margin-bottom: 14px;
-    background: #ffffff;
+    background: var(--surface-light);
     color: var(--text);
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-family: inherit;
     font-size: 14px;
@@ -237,7 +257,12 @@ input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.13);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
+}
+
+select option {
+    background: var(--surface);
+    color: var(--text);
 }
 
 input[type="checkbox"],
@@ -259,7 +284,7 @@ thead {
 }
 
 th {
-    color: #9a3412;
+    color: #fdba74;
     font-weight: 700;
     text-align: left;
 }
@@ -270,11 +295,20 @@ td {
     border-bottom: 1px solid var(--border);
 }
 
-tbody tr:hover {
-    background: #fffaf5;
+td {
+    color: var(--text-light);
 }
 
-/* Status labels */
+tbody tr {
+    background: var(--surface);
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+/* Badges and status labels */
 
 .badge,
 .status,
@@ -283,7 +317,7 @@ tbody tr:hover {
     padding: 4px 10px;
     border-radius: 20px;
     background: var(--primary-light);
-    color: #9a3412;
+    color: #fdba74;
     font-size: 12px;
     font-weight: 700;
 }
@@ -291,28 +325,25 @@ tbody tr:hover {
 .success,
 .status-success {
     background: var(--success-bg);
-    color: #166534;
+    color: #86efac;
 }
 
 .danger,
 .status-danger {
     background: var(--danger-bg);
-    color: #991b1b;
+    color: #fca5a5;
 }
 
 .warning,
 .status-warning {
     background: var(--warning-bg);
-    color: #92400e;
+    color: #fde68a;
 }
 
-/* Highlighted statistics */
+/* Lists and separators */
 
-.stat-number,
-.stat-value,
-.highlight,
-.accent {
-    color: var(--primary-dark);
+li {
+    color: var(--text-light);
 }
 
 hr {
@@ -335,11 +366,11 @@ footer {
 
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid #fdba74;
+    outline: 3px solid #fb923c;
     outline-offset: 3px;
 }
 
-/* Mobile responsiveness */
+/* Responsive layout */
 
 @media (max-width: 768px) {
     .container,
