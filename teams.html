@@ -1,0 +1,59 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matchday | Teams</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">M</span><span><strong>matchday.</strong><small>TOURNAMENT MANAGER</small></span></a><span class="season">COLLEGE LEAGUE · 2026</span></header>
+<div class="layout">
+<aside class="sidebar">
+<p class="nav-heading">MAIN MENU</p>
+<a class="nav-link" href="index.html">⌂ &nbsp; Dashboard</a>
+<a class="nav-link active" href="teams.html">♙ &nbsp; Teams & Players</a>
+<a class="nav-link" href="schedule.html">▦ &nbsp; Match Schedule</a>
+<a class="nav-link" href="scores.html">◷ &nbsp; Score Management</a>
+<a class="nav-link" href="points.html">☷ &nbsp; Points Table</a>
+<a class="nav-link" href="leaderboard.html">♛ &nbsp; Leaderboard</a>
+</aside>
+<main class="main">
+<div class="page-head"><div><p class="kicker">PARTICIPANTS</p><h1>Team Management</h1><p class="subtitle">View registered teams and their contact details.</p></div></div>
+<div class="stats">
+<article class="stat"><p class="stat-label">REGISTERED TEAMS</p><p class="stat-value">08</p><p class="stat-foot">In this sample league</p></article>
+<article class="stat"><p class="stat-label">PLAYERS</p><p class="stat-value">88</p><p class="stat-foot">Sample player count</p></article>
+</div>
+<section class="card">
+<div class="card-head"><h2>Register a Team</h2></div>
+<div class="notice">Frontend preview only: this form does not save data yet.</div>
+<form class="form-grid">
+<div class="field"><label for="team">Team Name</label><input id="team" type="text" placeholder="Enter team name"></div>
+<div class="field"><label for="captain">Captain Name</label><input id="captain" type="text" placeholder="Enter captain name"></div>
+<div class="field"><label for="players">Number of Players</label><input id="players" type="number" min="1" max="30" placeholder="e.g. 11"></div>
+<div class="field"><label for="contact">Contact Details</label><input id="contact" type="text" placeholder="Email or phone"></div>
+<div class="full"><button class="button" type="button">Register Team (Demo)</button></div>
+</form>
+</section>
+<section class="card">
+<div class="card-head"><h2>Registered Teams</h2></div>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Team</th><th>Captain</th><th>Players</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>01</td><td><div class="team"><span class="team-badge">T</span>City Titans</div></td><td>Rahul Sharma</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>02</td><td><div class="team"><span class="team-badge">F</span>Falcons</div></td><td>Aman Verma</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>03</td><td><div class="team"><span class="team-badge">S</span>Strikers</div></td><td>Rohit Singh</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>04</td><td><div class="team"><span class="team-badge">W</span>Warriors</div></td><td>Arjun Patel</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>05</td><td>Rangers</td><td>Karan Joshi</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>06</td><td>United</td><td>Vivek Yadav</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>07</td><td>Panthers</td><td>Dev Mehta</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+<tr><td>08</td><td>Champions</td><td>Aditya Rao</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
+</tbody></table></div>
+</section>
+<footer class="footer">Matchday Tournament Manager · Frontend Project Prototype</footer>
+</main></div>
+</body>
+</html>
+
