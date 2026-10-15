@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -509,4 +508,110 @@ tbody tr:last-child td {
   .full {
     grid-column: auto;
   }
+}
+
+
+:root {
+  --navy: #14213d;
+  --blue: #dc2626;
+  --bg: #f4f7fb;
+  --text: #202b3c;
+  --muted: #758198;
+  --border: #e5eaf2;
+  --white: #ffffff;
+  --green: #15803d;
+}
+
+/* Brand logo */
+.brand-mark {
+  background: #dc2626;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #991b1b;
+}
+
+.nav-heading {
+  color: #fecaca;
+}
+
+.nav-link {
+  color: #fee2e2;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #7f1d1d;
+  color: #ffffff;
+}
+
+.nav-link.active {
+  border-left-color: #fca5a5;
+}
+
+.sidebar-note {
+  border-color: #b91c1c;
+  color: #fecaca;
+}
+
+/* Headings and links */
+.kicker,
+.text-link {
+  color: #dc2626;
+}
+
+/* Buttons */
+.button {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.button:hover {
+  background: #b91c1c;
+}
+
+.button-light {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Table */
+th {
+  background: #fef2f2;
+}
+
+/* Team badges */
+.team-badge {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+/* Form focus */
+.field input:focus,
+.field select:focus {
+  outline: 2px solid #fecaca;
+  border-color: #dc2626;
+}
+
+/* Notice */
+.notice {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* Winner banner */
+.winner {
+  background: linear-gradient(120deg, #7f1d1d, #dc2626);
+}
+
+/* Leaderboard */
+.position {
+  color: #dc2626;
+}
+
+/* Text selection */
+::selection {
+  background: #fecaca;
+  color: #7f1d1d;
 }
