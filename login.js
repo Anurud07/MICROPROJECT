@@ -4,6 +4,6 @@ form.addEventListener("submit",e=>{
  e.preventDefault();
  try{
   const user=Matchday.login(document.getElementById("email").value.trim(),document.getElementById("password").value);
-  window.open(user.role==="admin"?"admin-dashboard.html":"student-dashboard.html","_blank","noopener,noreferrer");
+  window.location.href=user.role==="admin"?"admin-dashboard.html":"student-dashboard.html";
  }catch(err){msg.hidden=false;msg.textContent=err.message;}
 });

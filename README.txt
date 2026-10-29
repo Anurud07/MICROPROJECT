@@ -19,3 +19,12 @@ Important:
 - The admin demo credentials are public in this package. This is NOT secure authentication.
 - GitHub Pages can host this demo, but a real multi-user system requires a secure backend/database.
 - Existing tournament pages are retained. Student registration, login, dashboard and admin approvals are working as a local frontend demonstration.
+
+Score permissions and navigation update:
+- Score editing is shown only when logged in as the demo admin. Students/visitors can view results only.
+- Only Student Registration and Login Portal links open in a new tab; other page links stay in the current tab.
+- Score changes are saved to this browser only (localStorage), not shared across devices.
+Team registration permissions update:
+- The Register a Team form is visible and usable only when the demo admin is logged in in this browser.
+- Students and visitors can view the teams list but cannot use the registration form.
+- New team entries are stored in this browser's localStorage. This front-end-only restriction is not secure against deliberate browser manipulation; real access control requires a backend.
