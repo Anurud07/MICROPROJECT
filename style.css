@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -615,3 +616,26 @@ th {
   background: #fecaca;
   color: #7f1d1d;
 }
+
+
+/* ===== RED ACCENT THEME OVERRIDES (layout preserved) ===== */
+:root {
+  --navy: #7f1d1d;
+  --blue: #dc2626;
+}
+.brand-mark { background: #dc2626; }
+.nav-heading { color: #fecaca; }
+.nav-link { color: #fee2e2; }
+.nav-link:hover, .nav-link.active { background: #991b1b; color: #fff; }
+.nav-link.active { border-left-color: #fca5a5; }
+.sidebar-note { border-color: #b91c1c; color: #fecaca; }
+.kicker, .text-link, .position { color: #dc2626; }
+.button { background: #dc2626; color: #fff; }
+.button:hover { background: #b91c1c; }
+.button-light { background: #fee2e2; color: #991b1b; }
+th { background: #fef2f2; }
+.team-badge { color: #b91c1c; background: #fee2e2; }
+.field input:focus, .field select:focus { outline: 2px solid #fecaca; border-color: #dc2626; }
+.notice { background: #fef2f2; color: #991b1b; }
+.winner { background: linear-gradient(120deg, #7f1d1d, #dc2626); }
+::selection { background: #fecaca; color: #7f1d1d; }
