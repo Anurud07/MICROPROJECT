@@ -1,9 +1,29 @@
 
-const form=document.getElementById("loginForm"),msg=document.getElementById("message");
-form.addEventListener("submit",e=>{
- e.preventDefault();
- try{
-  const user=Matchday.login(document.getElementById("email").value.trim(),document.getElementById("password").value);
-  window.location.href=user.role==="admin"?"admin-dashboard.html":"student-dashboard.html";
- }catch(err){msg.hidden=false;msg.textContent=err.message;}
+const form = document.getElementById("loginForm");
+const msg = document.getElementById("message");
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  msg.hidden = true;
+  msg.textContent = "";
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  try {
+    const user = Matchday.login(email, password);
+
+    if (user.role === "admin") {
+      window.location.href = "admin-dashboard.html";
+    } else if (user.role === "student") {
+      window.location.href = "dashboard.html";
+    } else {
+      Matchday.logout();
+      throw new Error("This account does not have permission to log in.");
+    }
+  } catch (error) {
+    msg.hidden = false;
+    msg.textContent = error.message;
+  }
 });

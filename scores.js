@@ -1,57 +1,12 @@
 (() => {
-  const editor = document.getElementById("scoreEditor");
-  const accessNotice = document.getElementById("scoreAccessNotice");
-  const form = document.getElementById("scoreForm");
-  const message = document.getElementById("scoreMessage");
-  const tbody = document.querySelector("#scoreEditor")?.parentElement?.nextElementSibling?.querySelector("tbody") || document.querySelector("table tbody");
-  const KEY = "matchday_demo_scores_v1";
-  const defaults = [
-    {match:"Match 01 — City Titans vs Warriors", short:"M01", a:"City Titans", b:"Warriors", scoreA:3, scoreB:1},
-    {match:"Match 02 — Strikers vs Rangers", short:"M02", a:"Strikers", b:"Rangers", scoreA:2, scoreB:2},
-    {match:"Match 03 — Falcons vs United", short:"M03", a:"Falcons", b:"United", scoreA:1, scoreB:0}
-  ];
-  const readScores = () => {
-    try { const saved = JSON.parse(localStorage.getItem(KEY)); return Array.isArray(saved) && saved.length ? saved : defaults.map(x=>({...x})); }
-    catch { return defaults.map(x=>({...x})); }
-  };
-  let scores = readScores();
-  const user = Matchday.currentUser();
-  const isAdmin = user?.role === "admin";
-  if (isAdmin) {
-    editor.hidden = false;
-    accessNotice.textContent = "Admin mode: you can update match scores. Changes are saved in this browser only.";
-    accessNotice.classList.add("notice-success");
-  } else {
-    editor.hidden = true;
-    accessNotice.textContent = "View-only mode. Only the admin can change match scores. Log in with the admin account to edit results.";
+  const editor=document.getElementById('scoreEditor'), notice=document.getElementById('scoreAccessNotice'), form=document.getElementById('scoreForm'), message=document.getElementById('scoreMessage');
+  const tbody=document.querySelector('table tbody'); const user=Matchday.currentUser(),isAdmin=user?.role==='admin';
+  if(editor)editor.hidden=!isAdmin;
+  if(notice){notice.textContent=isAdmin?'Admin mode: update scores for matches recorded from the admin dashboard. Changes update standings automatically.':'View-only mode. Match results are maintained by the tournament admin.';}
+  const result=m=>m.scoreA>m.scoreB?`${m.teamA} Win`:m.scoreB>m.scoreA?`${m.teamB} Win`:'Draw';
+  function render(){const all=Matchday.matches();if(tbody){tbody.replaceChildren();if(!all.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=5;td.textContent='No match results recorded yet.';tr.append(td);tbody.append(tr);}all.slice().reverse().forEach((m,i)=>{const tr=document.createElement('tr');[`M${String(all.length-i).padStart(2,'0')}`,m.teamA,`${m.scoreA} - ${m.scoreB}`,m.teamB,result(m)].forEach((v,j)=>{const td=document.createElement('td');td.textContent=v;if(j===2){const b=document.createElement('b');b.textContent=v;td.replaceChildren(b);}tr.append(td);});tbody.append(tr);});}
+    const select=document.getElementById('match');if(select){const prev=select.value;select.replaceChildren();all.forEach((m,i)=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.game}: ${m.teamA} vs ${m.teamB}`;select.append(o);});if(all.some(m=>m.id===prev))select.value=prev;}
   }
-  const outcome = s => s.scoreA > s.scoreB ? `${s.a} Win` : s.scoreA < s.scoreB ? `${s.b} Win` : "Draw";
-  function render() {
-    tbody.replaceChildren();
-    scores.forEach((s, i) => {
-      const tr=document.createElement("tr");
-      [s.short,s.a,`${s.scoreA} - ${s.scoreB}`,s.b,outcome(s)].forEach(v=>{const td=document.createElement("td");td.textContent=v;if(v===`${s.scoreA} - ${s.scoreB}`){const b=document.createElement("b");b.textContent=v;td.replaceChildren(b);}tr.appendChild(td);});
-      tbody.appendChild(tr);
-    });
-    if (isAdmin) {
-      const select=document.getElementById("match");
-      const previous=select.value;
-      select.replaceChildren();
-      scores.forEach(s=>{const o=document.createElement("option");o.value=s.short;o.textContent=s.match;select.appendChild(o);});
-      if(scores.some(s=>s.short===previous)) select.value=previous;
-    }
-  }
-  if (isAdmin) form.addEventListener("submit", e=>{
-    e.preventDefault();
-    const selected=scores.find(s=>s.short===document.getElementById("match").value);
-    const a=document.getElementById("teamA").value, b=document.getElementById("teamB").value;
-    if(!selected || a==="" || b==="" || Number(a)<0 || Number(b)<0){message.hidden=false;message.textContent="Select a match and enter both non-negative scores.";return;}
-    selected.scoreA=Number(a);selected.scoreB=Number(b);
-    const date=document.getElementById("date").value, remarks=document.getElementById("remarks").value.trim();
-    selected.date=date;selected.remarks=remarks;
-    localStorage.setItem(KEY,JSON.stringify(scores));
-    message.hidden=false;message.textContent="Score saved successfully in this browser.";
-    render();
-  });
+  if(form&&isAdmin)form.addEventListener('submit',e=>{e.preventDefault();try{const id=document.getElementById('match').value;if(!id)throw new Error('No recorded match to update. Add a match from the admin dashboard first.');Matchday.updateMatch(id,{scoreA:document.getElementById('teamA').value,scoreB:document.getElementById('teamB').value,date:document.getElementById('date').value,remarks:document.getElementById('remarks').value.trim()});message.hidden=false;message.textContent='Score updated. Points table and leaderboard have been recalculated.';render();}catch(err){message.hidden=false;message.textContent=err.message;}});
   render();
 })();

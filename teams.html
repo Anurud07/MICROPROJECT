@@ -13,7 +13,7 @@
 <div class="layout">
 <aside class="sidebar">
 <p class="nav-heading">MAIN MENU</p>
-<a class="nav-link" href="index.html">⌂ &nbsp; Dashboard</a>
+<a class="nav-link" href="dashboard.html">⌂ &nbsp; Dashboard</a>
 <a class="nav-link active" href="teams.html">♙ &nbsp; Teams & Players</a>
 <a class="nav-link" href="schedule.html">▦ &nbsp; Match Schedule</a>
 <a class="nav-link" href="scores.html">◷ &nbsp; Score Management</a>
@@ -32,6 +32,7 @@
 <div class="card-head"><h2>Register a Team <span class="status completed">Admin only</span></h2></div>
 <div class="notice">Only the logged-in admin can register a team. Team entries are saved in this browser for this demo.</div>
 <form class="form-grid" id="team-registration-form">
+<div class="field"><label for="teamGame">Game</label><select id="teamGame" name="game" required><option value="">Select game</option><option>Football</option><option>Cricket</option><option>Badminton</option><option>Basketball</option><option>Volleyball</option><option>Chess</option></select></div>
 <div class="field"><label for="team">Team Name</label><input id="team" name="team" type="text" placeholder="Enter team name" required maxlength="60"></div>
 <div class="field"><label for="captain">Captain Name</label><input id="captain" name="captain" type="text" placeholder="Enter captain name" required maxlength="60"></div>
 <div class="field"><label for="players">Number of Players</label><input id="players" name="players" type="number" min="1" max="30" placeholder="e.g. 11" required></div>
@@ -43,7 +44,7 @@
 <section class="card">
 <div class="card-head"><h2>Registered Teams</h2></div>
 <div class="table-wrap"><table>
-<thead><tr><th>#</th><th>Team</th><th>Captain</th><th>Players</th><th>Status</th></tr></thead>
+<thead><tr><th>#</th><th>Team</th><th>Captain</th><th>Players</th><th>Game</th></tr></thead>
 <tbody id="registered-teams">
 <tr><td>01</td><td><div class="team"><span class="team-badge">T</span>City Titans</div></td><td>Rahul Sharma</td><td>11</td><td><span class="status completed">Registered</span></td></tr>
 <tr><td>02</td><td><div class="team"><span class="team-badge">F</span>Falcons</div></td><td>Aman Verma</td><td>11</td><td><span class="status completed">Registered</span></td></tr>

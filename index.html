@@ -1,132 +1,68 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matchday | Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Portal | Matchday Tournament Manager</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .portal-shell{max-width:520px;margin:48px auto;padding:20px}
+    .portal-card{background:#fff;border:1px solid #e5eaf2;border-radius:16px;padding:28px;box-shadow:0 8px 28px #14213d0d;margin:16px 0}
+    .portal-card h1,.portal-card h2{color:#991b1b;margin-bottom:10px}
+    .portal-card label{display:block;font-weight:700;font-size:13px;margin:14px 0 6px}
+    .portal-card input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #d7dce5;border-radius:8px;background:#fff;color:#202b3c}
+    .portal-btn{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;padding:12px 14px;background:#dc2626;color:white;border:0;border-radius:8px;cursor:pointer;font-weight:700;margin-top:14px}
+    .portal-btn:hover{background:#b91c1c}
+    .student-btn{background:#fff;color:#991b1b;border:1px solid #dc2626}
+    .student-btn:hover{background:#fef2f2}
+    .message{padding:10px 12px;background:#fef2f2;color:#991b1b;border-radius:8px;margin-top:12px;white-space:pre-wrap}
+    .muted{color:#758198}
+    .divider{border:0;border-top:1px solid #e5eaf2;margin:22px 0}
+    @media(max-width:600px){.portal-shell{padding:12px;margin:24px auto}.portal-card{padding:20px}}
+  </style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-mark">M</span>
-    <span><strong>matchday.</strong><small>TOURNAMENT MANAGER</small></span>
-  </a>
-  <span class="season">COLLEGE LEAGUE · 2026</span>
-</header>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">M</span>
+      <span><strong>matchday.</strong><small>TOURNAMENT MANAGER</small></span>
+    </a>
+    <span class="season">COLLEGE LEAGUE · 2026</span>
+  </header>
 
-<div class="layout">
-  <aside class="sidebar">
-    <p class="nav-heading">MAIN MENU</p>
-    <a class="nav-link active" href="index.html">⌂ &nbsp; Dashboard</a>
-    <a class="nav-link" href="teams.html">♙ &nbsp; Teams & Players</a>
-    <a class="nav-link" href="schedule.html">▦ &nbsp; Match Schedule</a>
-    <a class="nav-link" href="scores.html">◷ &nbsp; Score Management</a>
-    <a class="nav-link" href="points.html">☷ &nbsp; Points Table</a>
-    <a class="nav-link" href="leaderboard.html">♛ &nbsp; Leaderboard</a>
-    <a class="nav-link" href="register.html" target="_blank" rel="noopener noreferrer">＋ &nbsp; Student Registration</a>
-    <a class="nav-link" href="login.html" target="_blank" rel="noopener noreferrer">↪ &nbsp; Login Portal</a>
-    <div class="sidebar-note">
-      <strong>Project overview</strong>
-      A simple interface for organizing teams, fixtures, scores and standings.
-    </div>
-  </aside>
+  <main class="portal-shell">
+    <section class="portal-card">
+      <p class="kicker">WELCOME TO MATCHDAY</p>
+      <h1>Login Portal</h1>
+      <p class="muted">Choose how you want to continue.</p>
 
-  <main class="main">
-    <div class="page-head">
-      <div>
-        <p class="kicker">TOURNAMENT OVERVIEW</p>
-        <h1>Manage your tournament</h1>
-        <p class="subtitle">Everything you need to keep the competition organized.</p>
-      </div>
-      <a class="button" href="schedule.html">View fixtures →</a>
-    </div>
+      <a class="portal-btn" href="#admin-login">Login as Admin</a>
+      <a class="portal-btn student-btn" href="register.html">Register as Student</a>
 
-    <section class="stats">
-      <article class="stat">
-        <p class="stat-label">REGISTERED TEAMS</p>
-        <p class="stat-value">08</p>
-        <p class="stat-foot">Participating teams</p>
-      </article>
-      <article class="stat">
-        <p class="stat-label">TOTAL FIXTURES</p>
-        <p class="stat-value">28</p>
-        <p class="stat-foot">Round Robin format</p>
-      </article>
-      <article class="stat">
-        <p class="stat-label">COMPLETED MATCHES</p>
-        <p class="stat-value">12</p>
-        <p class="stat-foot">Sample tournament data</p>
-      </article>
-      <article class="stat">
-        <p class="stat-label">CURRENT LEADER</p>
-        <p class="stat-value">TITANS</p>
-        <p class="stat-foot">Example standings</p>
-      </article>
-    </section>
+      <hr class="divider">
 
-    <div class="content-grid">
-      <section class="card">
-        <div class="card-head">
-          <h2>Recent Results</h2>
-          <a class="text-link" href="scores.html">All scores →</a>
-        </div>
-        <div class="fixture">
-          <div class="fixture-team"><div class="team-badge">T</div>City Titans</div>
-          <div class="score">3 - 1</div>
-          <div class="fixture-team"><div class="team-badge">W</div>Warriors</div>
-        </div>
-        <div class="fixture">
-          <div class="fixture-team"><div class="team-badge">S</div>Strikers</div>
-          <div class="score">2 - 2</div>
-          <div class="fixture-team"><div class="team-badge">R</div>Rangers</div>
-        </div>
-        <div class="fixture">
-          <div class="fixture-team"><div class="team-badge">F</div>Falcons</div>
-          <div class="score">1 - 0</div>
-          <div class="fixture-team"><div class="team-badge">U</div>United</div>
-        </div>
-      </section>
+      <div id="admin-login">
+        <h2>Admin Login</h2>
+        <p class="muted">Authorized tournament administrators only.</p>
 
-      <section class="card">
-        <div class="card-head">
-          <h2>Upcoming Matches</h2>
-          <a class="text-link" href="schedule.html">Full schedule →</a>
-        </div>
-        <div class="fixture">
-          <div class="fixture-team">City Titans</div>
-          <div class="vs">VS</div>
-          <div class="fixture-team">Falcons</div>
-        </div>
-        <p class="subtitle">18 October · 10:00 AM · Main Ground</p>
-        <div class="fixture">
-          <div class="fixture-team">Warriors</div>
-          <div class="vs">VS</div>
-          <div class="fixture-team">Strikers</div>
-        </div>
-        <p class="subtitle">18 October · 2:00 PM · Main Ground</p>
-      </section>
-    </div>
+        <form id="loginForm">
+          <label for="email">Admin Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter admin email" required>
 
-    <section class="card">
-      <div class="card-head">
-        <h2>Current Standings</h2>
-        <a class="text-link" href="points.html">View points table →</a>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Rank</th><th>Team</th><th>Played</th><th>Won</th><th>Points</th></tr></thead>
-          <tbody>
-            <tr><td>01</td><td>City Titans</td><td>4</td><td>3</td><td><b>10</b></td></tr>
-            <tr><td>02</td><td>Falcons</td><td>4</td><td>3</td><td><b>9</b></td></tr>
-            <tr><td>03</td><td>Strikers</td><td>4</td><td>2</td><td><b>7</b></td></tr>
-            <tr><td>04</td><td>Warriors</td><td>4</td><td>2</td><td><b>6</b></td></tr>
-          </tbody>
-        </table>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" required>
+
+          <button class="portal-btn" type="submit">Login as Admin</button>
+        </form>
+
+        <p id="message" class="message" hidden></p>
       </div>
     </section>
-    <footer class="footer">Matchday Tournament Manager · Frontend Project Prototype</footer>
+    <p class="muted" style="text-align:center;font-size:12px">Matchday Tournament Manager · 2026</p>
   </main>
-</div>
+
+  <script src="app.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>
